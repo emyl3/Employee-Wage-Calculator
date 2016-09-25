@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Form List - Weekend Challenge #1</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href= "style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  </head>
+  <body>
+
+  <h1>Total Employee Wage Calculator</h1>
+    <div class = "empForm">
+      <form id = "empInfo">
+        <label for="firstName">First Name</label>
+        <input type="text" class="firstName" name="firstName" required/>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" class="lastName" name="lastName"/><br />
+
+        <label for="idNumber">ID Number</label>
+        <input type="number" class="idNumber" name="idNumber" min=0 required />
+
+        <label for="jobTitle">Job Title</label>
+        <input type="text" class="jobTitle" name="jobTitle" required/>
+
+        <label for="salary">Annual Salary</label>
+        <input type="number" class="salary" name="salary" min=0 required/>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <h2>Employee List</h2>
+    <ul id="empList">
+      <li class="firstName">
+        <p>First Name</p>
+      </li>
+
+      <li class="lastName">
+        <p>Last Name</p>
+      </li>
+
+      <li class="idNumber">
+        <p>ID</p>
+      </li>
+
+      <li class="jobTitle">
+        <p>Title</p>
+      </li>
+
+      <li class="salary">
+        <p>Annual Salary</p>
+      </li>
+
+      <li id="remove">
+        <p>Remove</p>
+      </li>
+    </ul>
+
+
+    <div id="expenditure">
+    <h2>Monthly Salary Expenditures:</h2>
+        <p></p>
+    </div>
+
+
+  </body>
+</html>
