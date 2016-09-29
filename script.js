@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var totalSalary = 0;
+  var salaries = [];
 
 // removes Employee entry
   $('#remove').on('click', '.delete', function(event){
@@ -8,7 +9,7 @@ $(document).ready(function() {
     console.log(x);
 
     // updates monthly salary expenditure by deleting salary of removed employee
-    var deletedSalary = parseInt($('#empList li').eq(4).find('.person').eq(x).text()/12);
+    var deletedSalary = parseFloat((salaries[x]));
     console.log(deletedSalary);
     totalSalary = totalSalary - deletedSalary;
     $('#expenditure').find('p').text(totalSalary);
@@ -29,7 +30,7 @@ $(document).ready(function() {
       employee[element.name] = element.value;
     //clearing the input form on submit
       $('#empInfo').find('input[type=text]').val('');
-      $('#empInfo').find('input[type=number]').val(0);
+      $('#empInfo').find('input[type=number]').val('');
     });
     var emp = [employee['firstName'], employee['lastName'], employee['idNumber'], employee['jobTitle'], employee['salary']];
 
@@ -45,9 +46,10 @@ function addEmployee(person) {
 }
 
 function addSalary(person) {
-  var salary = parseInt(person[4]/12);
-  totalSalary = parseInt(salary + totalSalary);
-  $('#expenditure').find('p').text(parseInt(totalSalary));
+  var salary = parseFloat(person[4]/12);
+  salaries.push(salary);
+  totalSalary = parseFloat(salary + totalSalary);
+  $('#expenditure').find('p').text(totalSalary.toFixed(2));
 }
 
 function addDelete() {
