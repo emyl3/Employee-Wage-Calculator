@@ -14,7 +14,7 @@ app.controller('employeeController', function () {
     self.totalSalary += salary;
   };
 
-  self.deleteEmployee = function ($index, employee) {
+  self.deleteEmployee = function ($index) {
     self.employees.splice($index, 1);
     var deletedValue = self.salaries.splice($index, 1);
     self.totalSalary -= deletedValue;
