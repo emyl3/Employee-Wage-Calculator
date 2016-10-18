@@ -12,6 +12,8 @@ app.controller('employeeController', function () {
     self.employees.push(angular.copy(self.person));
     self.salaries.push(angular.copy(salary));
     self.totalSalary += salary;
+
+    self.person = '';
   };
 
   self.deleteEmployee = function ($index) {
@@ -19,4 +21,5 @@ app.controller('employeeController', function () {
     var deletedValue = self.salaries.splice($index, 1);
     self.totalSalary -= deletedValue;
   };
+
 });
