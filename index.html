@@ -3,33 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Employee Form List - Weekend Challenge #1</title>
-    <script src="jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href= "style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
   </head>
-  <body>
-
+  <body ng-app="empApp">
+  <div ng-controller="employeeController as emp">
   <h1>Total Employee Wage Calculator</h1>
     <div class = "empForm">
-      <form id = "empInfo">
+      <form name = "empInfo" id="empInfo">
         <label for="firstName">First Name</label>
-        <input type="text" class="firstName" name="firstName" required/>
+        <input type="text" class="firstName" name="firstName" required ng-model="emp.person.first"/>
 
         <label for="lastName">Last Name</label>
-        <input type="text" class="lastName" name="lastName"/><br />
+        <input type="text" class="lastName" name="lastName" requried ng-model="emp.person.last"/><br />
 
         <label for="idNumber">ID Number</label>
-        <input type="number" class="idNumber" name="idNumber" min=0 required />
+        <input type="number" class="idNumber" name="idNumber" min=0 required ng-model="emp.person.id"/>
 
         <label for="jobTitle">Job Title</label>
-        <input type="text" class="jobTitle" name="jobTitle" required/>
+        <input type="text" class="jobTitle" name="jobTitle" required ng-model="emp.person.title"/>
 
         <label for="salary">Annual Salary</label>
-        <input type="number" class="salary" name="salary" min=0 required/>
+        <input type="number" class="salary" name="salary" min=0 required ng-model="emp.person.salary"/>
 
-        <button type="submit">Submit</button>
+        <button type="submit" ng-click="emp.createEmployee()">Submit</button>
       </form>
     </div>
 
@@ -37,35 +37,41 @@
     <ul id="empList">
       <li class="firstName">
         <p>First Name</p>
+        <p ng-repeat="employee in emp.employees"> {{ employee.first }}</p>
       </li>
 
       <li class="lastName">
         <p>Last Name</p>
+        <p ng-repeat="employee in emp.employees"> {{ employee.last }}</p>
       </li>
 
       <li class="idNumber">
         <p>ID</p>
+        <p ng-repeat="employee in emp.employees"> {{ employee.id }}</p>
       </li>
 
       <li class="jobTitle">
         <p>Title</p>
+        <p ng-repeat="employee in emp.employees"> {{ employee.title }}</p>
       </li>
 
       <li class="salary">
         <p>Annual Salary</p>
+        <p ng-repeat="employee in emp.employees"> {{ employee.salary }}</p>
       </li>
 
-      <li id="remove">
-        <p>Remove</p>
-      </li>
-    </ul>
+        <li id="remove">
+          <p>Remove</p>
+          <button class="delete" ng-repeat="employee in emp.employees track by $index" ng-click="emp.deleteEmployee($index, employee)">X</button>
+        </li>
+      </ul>
 
 
-    <div id="expenditure">
-    <h2>Monthly Salary Expenditures:</h2>
-        <p></p>
+      <div id="expenditure">
+        <h2>Monthly Salary Expenditures:</h2>
+        <p>{{ emp.totalSalary }}</p>
+      </div>
+
     </div>
-
-
   </body>
 </html>
