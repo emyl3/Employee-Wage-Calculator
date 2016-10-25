@@ -1,4 +1,6 @@
 # Total Employee Wage Calculator
+This application was created for an assignment for Prime Digital Academy. The `master` branch uses jQuery and the `angular` branch uses angular for the same functionality.
+
 The<b> Total Employee Wage Calculator</b> accepts an employee entry, lists that submission, and calculates the monthly salary expenditure.
 
 ## Features
@@ -17,4 +19,4 @@ expenses to the nearest integer. If an employee is removed that is taken to acco
 
 # Authors
   - elisa lee
-  - part of code comes from Prime Digital Academy group instruction
+  - Prime Digital Academy
